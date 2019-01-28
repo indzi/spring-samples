@@ -17,11 +17,18 @@ public class LoadSampleEmployeeData {
     @Bean
     CommandLineRunner initDB (EmployeeRepository employeeRepository){
         return args -> {
-            log.info("Preloading " + employeeRepository.save(new EmployeeEntity("Indranil", "Sinha", "Java", BigDecimal.valueOf(3000))));
+            /*log.info("Preloading " + employeeRepository.save(new EmployeeEntity("Indranil", "Sinha", "Java", BigDecimal.valueOf(3000))));
             log.info("Preloading " + employeeRepository.save(new EmployeeEntity("Behnam", "Khoshsafar", "Java", BigDecimal.valueOf(50000))));
             log.info("Preloading " + employeeRepository.save(new EmployeeEntity("Aliasgar", "Vesalian", "Java", BigDecimal.valueOf(10000))));
             log.info("Preloading " + employeeRepository.save(new EmployeeEntity("Reza", "Afsharian", "Java", BigDecimal.valueOf(10000))));
-            log.info("Preloading " + employeeRepository.save(new EmployeeEntity("Hossein", "Amiri", "Java", BigDecimal.valueOf(10000))));
+            log.info("Preloading " + employeeRepository.save(new EmployeeEntity("Hossein", "Amiri", "Java", BigDecimal.valueOf(10000))));*/
+            EmployeeEntity employeeEntity = new EmployeeEntity();
+            employeeEntity.setFirstName("Indranil");
+            employeeEntity.setLastName("Sinha");
+            employeeEntity.setDepartment("Java");
+            employeeEntity.setSalary(BigDecimal.valueOf(3000));
+
+            log.info("Preloading " + employeeRepository.save(employeeEntity));
         };
     }
 }
